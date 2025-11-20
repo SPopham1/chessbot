@@ -26,8 +26,8 @@ The program prints the board to the console and the bot will play itself (the sc
 ## Files
 
 - `chess_bot.py` - main engine logic and CLI entrypoint.
-- `requirements.txt` - Python dependencies (pin versions here for reproducible runs).
-- `read_me.md` - this file.
+- `requirements.txt` - Python dependencies.
+- `README.md` - this file.
 
 ## Design notes
 
