@@ -35,9 +35,6 @@ class TranspositionTable:
                     return best_move, eval_score, flag
         return None
 
-    def clear(self):
-        """Clear the transposition table"""
-        self.table.clear()
 
 class ChessBot:
     def __init__(self, width=800, height=800, offset=(0,0)):
@@ -64,14 +61,6 @@ class ChessBot:
             chess.KING: 1000,
         }
 
-    def make_move(self, move_uci):
-        move = chess.Move.from_uci(move_uci)
-        if move in self.board.legal_moves:
-            self.board.push(move)
-            self.switch_player()
-            return True
-        else:
-            return False
 
     def switch_player(self):
         """Switch the turn between white and black"""
@@ -80,20 +69,14 @@ class ChessBot:
     def get_board_fen(self):
         return self.board.fen()
 
-    def reset_board(self):
-        self.board.reset()
-
-    def get_possible_moves(self, colour=None):
-        """Get all legal moves for a colour (or all if None)"""
-        return list(self.board.legal_moves)
 
     def evaluate(self):
         """Evaluation based on material balance, pawn structure, and king safety"""
-        pawn_value = 1
-        knight_value = 3
-        bishop_value = 3
-        rook_value = 5
-        queen_value = 10
+        pawn_value = mvv_lva[chess.PAWN]
+        knight_value = mvv_lva[chess.KNIGHT]
+        bishop_value = mvv_lva[chess.BISHOP]
+        rook_value = mvv_lva[chess.ROOK]
+        queen_value = mvv_lva[chess.QUEEN]
 
         passed_pawn_bonuses = [0, 120, 80, 50, 30, 15, 15, 120]
         isolated_pawn_penalty = [0, -10, -25, -50, -75, -75, -75, -75, -75]
