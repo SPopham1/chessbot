@@ -72,11 +72,11 @@ class ChessBot:
 
     def evaluate(self):
         """Evaluation based on material balance, pawn structure, and king safety"""
-        pawn_value = mvv_lva[chess.PAWN]
-        knight_value = mvv_lva[chess.KNIGHT]
-        bishop_value = mvv_lva[chess.BISHOP]
-        rook_value = mvv_lva[chess.ROOK]
-        queen_value = mvv_lva[chess.QUEEN]
+        pawn_value = self.mvv_lva[chess.PAWN]
+        knight_value = self.mvv_lva[chess.KNIGHT]
+        bishop_value = self.mvv_lva[chess.BISHOP]
+        rook_value = self.mvv_lva[chess.ROOK]
+        queen_value = self.mvv_lva[chess.QUEEN]
 
         passed_pawn_bonuses = [0, 120, 80, 50, 30, 15, 15, 120]
         isolated_pawn_penalty = [0, -10, -25, -50, -75, -75, -75, -75, -75]
@@ -392,7 +392,7 @@ if __name__ == "__main__":
         elif bot.board.is_check():
             print(f"{bot.turn.upper()} is in check!")
         
-        # # Player's turn (White)
+        # # Player's turn (White) -- not working
         # if bot.turn == "white":
         #     while True:
         #         user_input = input("Your move (white): ").strip().lower()
@@ -415,6 +415,7 @@ if __name__ == "__main__":
         #                     break
         #             except:
         #                 print("Invalid move. Try again.")
+
         # Bot's turn (White)
         if bot.turn == "white":
             if bot.board.is_game_over():

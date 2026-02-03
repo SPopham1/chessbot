@@ -34,3 +34,12 @@ The program prints the board to the console and the bot will play itself (the sc
 - Evaluation and MVV-LVA move-ordering use centipawn scales so search heuristics and static evaluation are numerically consistent.
 - Transposition table stores (depth, eval, flag, best_move) to speed up repeated position lookups.
 - Search uses iterative deepening with time-limited searches and quiescence at leaf nodes.
+
+## TODO:
+
+- GUI Frontend instead of console (build a web/desktop UI)
+- UCI Protocol Support (let it be used by standard chess GUIs like Arena or Scid)
+- ELO Calibration and Testing Suite (run automated matches vs stockfish + visualise performance)
+- Self-Play Training Data Collection (log positions and train eval model)
+- Time Control Engine (blitz, rapid, classical modes)
+- Benchmarking and Profiling Dashboard (search depth, nodes/second, pruning stats)
